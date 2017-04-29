@@ -84,22 +84,20 @@ class App extends Component {
         myThis.state.data.push({"x": x,"y": y})
         myThis.setState({data: myThis.state.data});
 
-        var mapWidth = document.getElementById('map').offsetWidth;
-        var mapHeight = (document.getElementById('map').offsetHeight)/2;
+        var helfMapWidth = (document.getElementById('map').offsetWidth)/2;
+        var helfMapHeight = (document.getElementById('map').offsetHeight)/2;
         var xAxis = myThis.state.data[myThis.state.data.length-1];
-        var newWidth;
         
-        myThis.setState({height: mapHeight}); 
+        myThis.setState({height: helfMapHeight}); 
 
         if (xAxis!=undefined) {
-          if (xAxis.x>mapWidth/2) {
+          if (xAxis.x>helfMapWidth) {
               myThis.state.data.shift();
-              append_result(760,y,myThis);
+              append_result(helfMapWidth,y,myThis);
           }
           else {
               append_result(x,y,myThis);  
-              newWidth = myThis.state.width+5;
-              myThis.setState({width: newWidth});                          
+              myThis.setState({width: myThis.state.width+5});                          
               
           }
         }
