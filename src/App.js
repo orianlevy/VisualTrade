@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import AreaChart from './area'
+import AreaChart from './Area'
 import logo from 'file-loader!./assets/logo.svg';
 import map from 'file-loader!./assets/map.jpg';
 import './App.css';

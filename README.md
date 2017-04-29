@@ -14,9 +14,9 @@
 
 
 #Flow
-1. area.jsx is a component that know how to render d3 area charts
-2. App.js is the main component that initializing the configuration for area.jsx component
+1. Area is a component that know how to render d3 area charts
+2. App is the main component that initializing the configuration for Area component
 3. The walk function in App.js is generating random x,y number according to random walk algorithm and updating the state of out date
 4. The walk function have setTimeout of 100ms - so it runs every 100ms with new x,y points
-5. In the App.js component when the state of data is updated, we render the area.jsx component with the new x,y and so on
-6. the append_result function in App.js component is appending the brown dot to our d3 chart with the corresponding x,y
+5. In the App component when the state of data is updated, we render the Area component with the new x,y and so on
+6. the append_result function in App component is appending the brown dot to our d3 chart with the corresponding x,y
