@@ -41,14 +41,25 @@ body {
     stroke-width: 0;
 }
 
+.Map-container {
+  position: relative;
+}
+
 svg {
     position: absolute;
-    top: 620px;
-    left: 190px;
+    top: 37%;
+    left: 10%;
     fill-opacity: 0.7;
 }
 
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
+}
+
+
+@media (min-width: 1250px) {
+  svg {
+    top: 41.5%;
+}
 }

@@ -4,7 +4,7 @@ import logo from 'file-loader!./assets/logo.svg';
 import map from 'file-loader!./assets/map.jpg';
 import './App.css';
 
-var data = []
+var data, width, height;
 
 var chartSeries = [
     {
@@ -31,10 +31,12 @@ class App extends Component {
 
   constructor(props) {
     super(props);
-    this.state = {data: []};
+    this.state = {data: [], width: 0, height: 0};
   }
 
   static defaultProps = {
+      height: height,
+      width: width,
       data: data,
       chartSeries: chartSeries,
       x: x,
@@ -62,8 +64,8 @@ class App extends Component {
         var result_idy = y / GRID;
 
         svg.append("svg:circle")
-            .attr("cx", x)
-            .attr("cy", 100-(result_idy-100)) //Missing Parameter
+            .attr("cx", x-10)
+            .attr("cy", 100-(result_idy-100)) 
             .attr("r", POINT_R)
             .style("fill", "brown")
             .transition()
@@ -82,16 +84,23 @@ class App extends Component {
         myThis.state.data.push({"x": x,"y": y})
         myThis.setState({data: myThis.state.data});
 
-        var width = document.getElementById('map').offsetWidth;
+        var mapWidth = document.getElementById('map').offsetWidth;
+        var mapHeight = (document.getElementById('map').offsetHeight)/2;
         var xAxis = myThis.state.data[myThis.state.data.length-1];
+        var newWidth;
+        
+        myThis.setState({height: mapHeight}); 
 
         if (xAxis!=undefined) {
-          if (xAxis.x>width/2) {
+          if (xAxis.x>mapWidth/2) {
               myThis.state.data.shift();
               append_result(760,y,myThis);
           }
           else {
-              append_result(x,y,myThis);
+              append_result(x,y,myThis);  
+              newWidth = myThis.state.width+5;
+              myThis.setState({width: newWidth});                          
+              
           }
         }
         
@@ -113,6 +122,8 @@ class App extends Component {
           <div className="Map-container" id="Map-container">
             <img src={map} className="map" id="map" alt="map" />
             <AreaChart
+                width= {this.state.width}
+                height={this.state.height}
                 data= {this.state.data}
                 chartSeries= {chartSeries}
                 x= {x}

@@ -10,7 +10,6 @@
 #Notes:
 1. Tested with resolution 1920x1080
 2. The brown dot is not always correcly align with y axis
-3. I wasnt able to create the first part where the line is getting to the middle (only the brown dot is moving but the graph dosent)
 
 
 #Flow
@@ -20,3 +19,5 @@
 4. The walk function have setTimeout of 100ms - so it runs every 100ms with new x,y points
 5. In the App component when the state of data is updated, we render the Area component with the new x,y and so on
 6. the append_result function in App component is appending the brown dot to our d3 chart with the corresponding x,y
+7. The initial state of the width is 0, and each time the walk function is running it checks if the current state of the width is less then the half of the map,
+	If yes, it add 1 to the width. If we reached the half of the map - we wont expand the width of the chart anymore.

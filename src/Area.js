@@ -17,10 +17,8 @@ export default class AreaChart extends Component {
   }
 
   static defaultProps = {
-    showScatter: false,
-      width: 760,
-      height: 565,
-      margins: {top: 0, right: -2, bottom: -20, left: -5}
+      showScatter: false,
+      margins: {top: 0, right: 20, bottom: -20, left: -5}
   }
 
   static propTypes = {
