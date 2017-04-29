@@ -129,7 +129,6 @@ class App extends Component {
                 xScale= {xScale}
               />            
           </div>
-         
         </div>        
       </div>
     );
