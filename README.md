@@ -1,6 +1,6 @@
 #Instructions:
-1. Browse to VisualTrade folder
-2. Open CMD
+1. Open CMD
+2. cd <VisualTradeFolder> 
 3. npm install
 4. npm run prod
 5. Browse to VisualTrade\dist
