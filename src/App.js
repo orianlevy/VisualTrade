@@ -65,7 +65,7 @@ class App extends Component {
 
         svg.append("svg:circle")
             .attr("cx", x-10)
-            .attr("cy", 100-(result_idy-100)) 
+            .attr("cy", (result_idy)) 
             .attr("r", POINT_R)
             .style("fill", "brown")
             .transition()
