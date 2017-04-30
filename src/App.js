@@ -45,7 +45,8 @@ class App extends Component {
 
   componentDidMount() {
 
-    var GRID = 5,
+    var yGrid = 20,
+        GRID = 5,
         myThis = this,
         WALK_H = 680,
         WALK_W = 2 * WALK_H,
@@ -60,8 +61,7 @@ class App extends Component {
 
 
     function append_result(x,y,myThis) {
-        var result_idx = x / GRID;
-        var result_idy = y / GRID;
+        var result_idy = y / yGrid;
 
         svg.append("svg:circle")
             .attr("cx", x-10)
@@ -76,9 +76,9 @@ class App extends Component {
     function walk(x, y, myThis) {
         var y_end, x_end = x + GRID;
         if (Math.random() < 0.5) {
-            y_end = y + GRID;
+            y_end = y + yGrid;
         } else {
-            y_end = y - GRID;
+            y_end = y - yGrid;
         } 
         
         myThis.state.data.push({"x": x,"y": y})
@@ -97,7 +97,7 @@ class App extends Component {
           }
           else {
               append_result(x,y,myThis);  
-              myThis.setState({width: myThis.state.width+5});                          
+              myThis.setState({width: myThis.state.width+GRID});                          
               
           }
         }
